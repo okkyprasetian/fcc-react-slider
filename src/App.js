@@ -4,6 +4,7 @@ import { FaQuoteRight } from 'react-icons/fa'
 
 function App() {
 
+  // State
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -34,14 +35,19 @@ function App() {
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
     }
   ])
+  const [index, setIndex] = useState(0)
 
   return (
     <div className="App">
       <h1><span>/</span> Review</h1>
       <div className="container">
-        {reviews.map(r => {
+        {reviews.map((r, rIndex) => {
+          let position = 'slide-right'
+          if (rIndex === index) {
+            position = 'slide-active'
+          }
           return (
-            <div className="review" key={r.id}>
+            <div className={`review ${position}`} key={r.id}>
               <img className="review-img" src={r.img} alt={r.name} />
               <p className="name">{r.name}</p>
               <p className="job">{r.job}</p>
