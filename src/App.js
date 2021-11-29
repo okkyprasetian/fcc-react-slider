@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
+import { FaQuoteRight } from 'react-icons/fa'
 
 function App() {
 
@@ -45,6 +45,17 @@ function App() {
     setIndex(i + 1)
   }
 
+  // Use Effect
+  useEffect(() => {
+    const lastIdx = reviews.length - 1
+    if (index < 0) {
+      setIndex(lastIdx)
+    }
+    if (index > lastIdx) {
+      setIndex(0)
+    }
+  }, [index, reviews])
+
   return (
     <div className="App">
       <h1><span>/</span> Review</h1>
@@ -63,6 +74,7 @@ function App() {
               <p className="name">{r.name}</p>
               <p className="job">{r.job}</p>
               <p className="description">{r.description}</p>
+              <FaQuoteRight />
             </div>
           )
         })}
