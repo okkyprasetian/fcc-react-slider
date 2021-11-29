@@ -5,24 +5,28 @@ function App() {
   const [reviews, setReviews] = useState([
     {
       id: 1,
-      name: 'Susana Johnasson',
+      img: './images/susanna.jpg',
+      name: 'Susanna Johnasson',
       job: 'Website Designer',
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
     },
     {
       id: 2,
+      img: './images/loberto.jpg',
       name: 'Loberto Nickson',
       job: 'CTO in Vinecook.inc',
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
     },
     {
       id: 3,
+      img: './images/aaron.jpg',
       name: 'Aaron McArthur',
       job: 'Developer',
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
     },
     {
       id: 4,
+      img: './images/tifanny.jpg',
       name: 'Tifanny Ponnilissa',
       job: 'Marketing Manager',
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
@@ -36,7 +40,7 @@ function App() {
         {reviews.map(r => {
           return (
             <div className="review" key={r.id}>
-              <div className="id">{r.id}</div>
+              <img className="review-img" src={r.img} alt={r.name} />
               <p className="name">{r.name}</p>
               <p className="job">{r.job}</p>
               <p className="description">{r.description}</p>

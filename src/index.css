@@ -35,6 +35,14 @@ h1 {
   text-align: center;
 }
 
+.review-img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
 .btn {
   position: absolute;
   display: flex;
