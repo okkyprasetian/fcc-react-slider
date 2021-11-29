@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
-import { FaQuoteRight } from 'react-icons/fa'
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 
 function App() {
 
@@ -37,6 +37,14 @@ function App() {
   ])
   const [index, setIndex] = useState(3)
 
+  // Set State
+  const leftClick = i => {
+    setIndex(i - 1)
+  }
+  const rightClick = i => {
+    setIndex(i + 1)
+  }
+
   return (
     <div className="App">
       <h1><span>/</span> Review</h1>
@@ -46,9 +54,7 @@ function App() {
           if (rIndex === index) {
             position = 'slide-active'
           }
-          if (rIndex === index - 1) {
-            position = 'slide-left'
-          } else if (index === 0 && rIndex === reviews.length - 1) {
+          if (rIndex === index - 1 || (index === 0 && rIndex === reviews.length - 1)) {
             position = 'slide-left'
           }
           return (
@@ -60,8 +66,8 @@ function App() {
             </div>
           )
         })}
-        <div className="btn btn-left">L</div>
-        <div className="btn btn-right">R</div>
+        <div className="btn btn-left" onClick={() => leftClick(index)}> <FiChevronLeft /> </div>
+        <div className="btn btn-right" onClick={() => rightClick(index)}> <FiChevronRight /> </div>
       </div>
     </div>
   );
