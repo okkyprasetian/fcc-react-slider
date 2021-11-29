@@ -38,11 +38,11 @@ function App() {
   const [index, setIndex] = useState(3)
 
   // Set State
-  const leftClick = i => {
-    setIndex(i - 1)
+  const leftClick = () => {
+    setIndex(index - 1)
   }
-  const rightClick = i => {
-    setIndex(i + 1)
+  const rightClick = () => {
+    setIndex(index + 1)
   }
 
   // Use Effect
@@ -55,6 +55,12 @@ function App() {
       setIndex(0)
     }
   }, [index, reviews])
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1)
+    }, 2500);
+    return () => clearInterval(slider)
+  }, [index])
 
   return (
     <div className="App">
@@ -78,8 +84,8 @@ function App() {
             </div>
           )
         })}
-        <div className="btn btn-left" onClick={() => leftClick(index)}> <FiChevronLeft /> </div>
-        <div className="btn btn-right" onClick={() => rightClick(index)}> <FiChevronRight /> </div>
+        <div className="btn btn-left" onClick={leftClick}> <FiChevronLeft /> </div>
+        <div className="btn btn-right" onClick={rightClick}> <FiChevronRight /> </div>
       </div>
     </div>
   );
