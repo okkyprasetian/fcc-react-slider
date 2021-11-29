@@ -43,6 +43,8 @@ function App() {
             </div>
           )
         })}
+        <div className="btn btn-left">L</div>
+        <div className="btn btn-right">R</div>
       </div>
     </div>
   );

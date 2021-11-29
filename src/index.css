@@ -34,3 +34,19 @@ h1 {
 .review * {
   text-align: center;
 }
+
+.btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: solid 3px blue;
+  top: 50%;
+  cursor: pointer;
+}
+
+.btn-right {
+  right: 0;
+}
