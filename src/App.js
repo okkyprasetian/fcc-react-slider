@@ -5,7 +5,7 @@ import { FaQuoteRight } from 'react-icons/fa'
 function App() {
 
   // State
-  const [reviews, setReviews] = useState([
+  const [reviews] = useState([
     {
       id: 1,
       img: './images/susanna.jpg',
@@ -58,13 +58,13 @@ function App() {
   useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1)
-    }, 2500);
+    }, 3000);
     return () => clearInterval(slider)
   }, [index])
 
   return (
     <div className="App">
-      <h1><span>/</span> Review</h1>
+      <h1><span className="slash">/</span>Review</h1>
       <div className="container">
         {reviews.map((r, rIndex) => {
           let position = 'slide-right'
@@ -80,12 +80,12 @@ function App() {
               <p className="name">{r.name}</p>
               <p className="job">{r.job}</p>
               <p className="description">{r.description}</p>
-              <FaQuoteRight />
+              <FaQuoteRight className="quote" />
             </div>
           )
         })}
-        <div className="btn btn-left" onClick={leftClick}> <FiChevronLeft /> </div>
-        <div className="btn btn-right" onClick={rightClick}> <FiChevronRight /> </div>
+        <FiChevronLeft className="btn btn-left" onClick={leftClick} />
+        <FiChevronRight className="btn btn-right" onClick={rightClick} />
       </div>
     </div>
   );
