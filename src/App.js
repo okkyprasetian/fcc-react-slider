@@ -35,7 +35,7 @@ function App() {
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, amet pariatur omnis inventore saepe nisi est velit commodi in aspernatur?'
     }
   ])
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(3)
 
   return (
     <div className="App">
@@ -45,6 +45,11 @@ function App() {
           let position = 'slide-right'
           if (rIndex === index) {
             position = 'slide-active'
+          }
+          if (rIndex === index - 1) {
+            position = 'slide-left'
+          } else if (index === 0 && rIndex === reviews.length - 1) {
+            position = 'slide-left'
           }
           return (
             <div className={`review ${position}`} key={r.id}>
