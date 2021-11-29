@@ -3,3 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.container {
+  border: dotted green;
+  display: flex;
+  position: relative;
+  width: 80%;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+.review {
+  border: dotted yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+}
+
+.review * {
+  text-align: center;
+}
